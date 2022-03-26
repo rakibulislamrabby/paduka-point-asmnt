@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
 
 import Product from '../Product/Product';
+import QuestionAns from '../QuestionAnswer/QuestionAns';
 
 const Products = () => {
     const [products, setproducts] = useState([]);
@@ -12,10 +13,6 @@ const Products = () => {
             .then(res => res.json())
             .then(data => setproducts(data));
     }, []);
-    // const addToCart = (product) => {
-    //     const newCart = [...carts, products]
-    //     setcart(newCart);
-    // }
     const addToCart = (product) => {
         let searchedProduct = cart.find(search => search.id === product.id);
         if (searchedProduct) {
@@ -32,34 +29,44 @@ const Products = () => {
 
     }
 
+    const chooseOne = (selectedCarts) => {
+        const totalCartItems = selectedCarts.length;
+        if (totalCartItems < 2) {
+            alert("Please add minimum 2 items to choose 1 randomly")
+        }
+        else {
+            const index = Math.floor(Math.random() * totalCartItems);
+            const luckyCart = selectedCarts[index]
+            setcart([luckyCart]);
+        }
+    }
+    const chooseAgain = () => {
+        setcart([]);
+    }
+
     return (
         <div className='container'>
-            <h1 className=' mt-3'>Welcome in our site</h1>
-            <h5 className='mb-5 '>Buy Your Favourite <b className='text-danger'>Shoes</b></h5>
+            <div>
+                <h1 className=' mt-3'><b className='text-danger'>Paduka</b> Point</h1>
+                <h5 className='mb-5 '>Buy Your Favourite <b className='text-danger'>Shoes</b></h5>
+            </div>
             <div className='row'>
-                <div className='col-lg-9 float-left '>
+                <div className='col-lg-9 '>
                     <div className='row '>
                         {
                             products.map(product => <Product
                                 key={product.id}
                                 product={product}
                                 addToCart={addToCart}
-
                             ></Product>)
                         }
                     </div>
+                    <QuestionAns></QuestionAns>
                 </div>
-                <div className='col-lg-3 border border-danger sm-1'>
-                    <div className='bg-grey  h-100 '>
-                        <h1 className='mb-3'>Cart History</h1>
-                        {
-                            cart.map(item =>
 
-                                <Cart key={item.id} item={item}></Cart>)
-                        }
-
-                        <button className='btn btn-outline-danger m-2'>Choose 1 for Me</button> <br />
-                        <button className='btn btn-outline-danger mx-'>Choose Again</button>
+                <div className='col-lg-3 border border-danger '>
+                    <div>
+                        <Cart carts={cart} chooseAgain={chooseAgain} chooseOne={chooseOne}></Cart>
                     </div>
                 </div>
             </div>

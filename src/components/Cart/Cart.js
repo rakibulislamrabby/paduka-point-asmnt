@@ -1,11 +1,24 @@
 import React from 'react';
 import "./Cart.css"
-const Cart = (props) => {
-    const { name, photo } = props.item;
+const Cart = ({ carts, chooseAgain, chooseOne }) => {
+    // const { name, photo } = item;
     return (
         <div className='cart-item'>
+            <h1>Cart History</h1>
+            {
+                carts.map(cart => {
+                    return (
+                        <div key={cart.id}>
+                            <h5>{cart.name}</h5>
 
-            <h5>Name: {name}</h5>
+                        </div>
+                    )
+                })
+            }
+            <div>
+                <button className='btn btn-outline-danger m-2' onClick={() => chooseOne(carts)} >Choose 1 for Me</button> <br />
+                <button className='btn btn-outline-danger mx-' onClick={chooseAgain}>Choose Again</button>
+            </div>
         </div>
     );
 };
