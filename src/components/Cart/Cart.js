@@ -1,7 +1,6 @@
 import React from 'react';
 import "./Cart.css"
 const Cart = ({ carts, chooseAgain, chooseOne }) => {
-    // const { name, photo } = item;
     return (
         <div className=''>
             <h1>Cart History</h1>
