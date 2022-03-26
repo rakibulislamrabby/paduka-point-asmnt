@@ -1,6 +1,11 @@
-# Getting Started with Create React App
+# This Site Name is Paduka Point
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is Live Link [Create React App](https://cheerful-rugelach-f4f287.netlify.app/).
+
+## Technology used for this site
+
+1. RectJS
+2. Bootstrap
 
 ## Available Scripts
 

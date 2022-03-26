@@ -52,7 +52,7 @@ const Products = () => {
             </div>
             <div className='row'>
 
-                <div className='col-lg-3 border border-danger mb-5'>
+                <div className='col-lg-3  mb-5'>
                     <div className=''>
                         <Cart carts={cart} chooseAgain={chooseAgain} chooseOne={chooseOne}></Cart>
                     </div>
