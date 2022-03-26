@@ -45,12 +45,19 @@ const Products = () => {
     }
 
     return (
-        <div className='container'>
-            <div>
+        <div className='container main-div '>
+            <div className='bg-light'>
                 <h1 className=' mt-3'><b className='text-danger'>Paduka</b> Point</h1>
-                <h5 className='mb-5 '>Buy Your Favourite <b className='text-danger'>Shoes</b></h5>
+                <h5 className='mb-5 pb-3'>Buy Your Favourite <b className='text-danger'>Shoes</b></h5>
             </div>
             <div className='row'>
+
+                <div className='col-lg-3 border border-danger mb-5'>
+                    <div className=''>
+                        <Cart carts={cart} chooseAgain={chooseAgain} chooseOne={chooseOne}></Cart>
+                    </div>
+                </div>
+
                 <div className='col-lg-9 '>
                     <div className='row '>
                         {
@@ -62,12 +69,6 @@ const Products = () => {
                         }
                     </div>
                     <QuestionAns></QuestionAns>
-                </div>
-
-                <div className='col-lg-3 border border-danger '>
-                    <div>
-                        <Cart carts={cart} chooseAgain={chooseAgain} chooseOne={chooseOne}></Cart>
-                    </div>
                 </div>
             </div>
 
