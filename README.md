@@ -1,6 +1,6 @@
 # This Site Name is Paduka Point
 
-This is Live Link [Create React App](https://cheerful-rugelach-f4f287.netlify.app/).
+This is Live Link [Paduka point](https://cheerful-rugelach-f4f287.netlify.app/).
 
 ## Technology used for this site
 
